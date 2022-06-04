@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useSelector, useStore } from "react-redux";
 
 function NameText() {
-  const name = useSelector((state) => state.common.name);
+  const name = useSelector(({ common }) => common.name);
   return <p>이름은? : {name}</p>;
 }
 
