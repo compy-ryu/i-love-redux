@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 function Description() {
-  const state = useSelector((state) => state);
-  return <p>설명은? : {state.common.description}</p>;
+  const description = useSelector((state) => state.common.description);
+  return <p>설명은? : {description}</p>;
 }
 
 export default Description;
