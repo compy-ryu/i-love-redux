@@ -1,11 +1,10 @@
 import produce from "immer";
 
 export const createReducer =
-  (actionList, initialState) =>
+  (reducer, initialState) =>
   (state = initialState, { type = "", payload = {} }) => {
     return produce(state, (draft) => {
-      const action = actionList[type];
-      typeof action === "function" && action(draft, payload);
+      typeof reducer[type] === "function" && reducer[type](draft, payload);
     });
   };
 
