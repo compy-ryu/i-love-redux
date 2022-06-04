@@ -17,7 +17,7 @@ const initialState = {
 
 const reducer = {
   updateName(state, { name }) {
-    state.items = name;
+    state.name = name;
   },
 
   updateDescription(state, { description }) {
@@ -26,8 +26,8 @@ const reducer = {
 };
 
 export const commonActions = {
-  updateName: ({ name }) => createAction(reducer.updateName, { name }),
-  updateContent: ({ content }) => createAction(reducer.updateDescription, { content }),
+  updateName: ({ name = "" }) => createAction(reducer.updateName, { name }),
+  updateDescription: ({ description = "" }) => createAction(reducer.updateDescription, { description }),
 };
 
 export const commonReducer = createReducer(reducer, initialState);
