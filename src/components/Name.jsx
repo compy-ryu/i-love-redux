@@ -1,4 +1,4 @@
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 
 function NameText() {
   const name = useSelector(({ common }) => common.name);
