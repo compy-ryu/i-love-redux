@@ -16,18 +16,18 @@ const initialState = {
 */
 
 const reducer = {
-  updateName(state, { name }) {
+  updateCommonName(state, { name }) {
     state.name = name;
   },
 
-  updateDescription(state, { description }) {
+  updateCommonDescription(state, { description }) {
     state.description = description;
   },
 };
 
 export const commonActions = {
-  updateName: ({ name = "" }) => createAction(reducer.updateName, { name }),
-  updateDescription: ({ description = "" }) => createAction(reducer.updateDescription, { description }),
+  updateName: ({ name = "" }) => createAction(reducer.updateCommonName, { name }),
+  updateDescription: ({ description = "" }) => createAction(reducer.updateCommonDescription, { description }),
 };
 
 export const commonReducer = createReducer(reducer, initialState);
