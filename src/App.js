@@ -1,9 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import Description from "components/Description";
+import NameText from "components/Name";
+import { useDispatch } from "react-redux";
 import { commonActions } from "store/common";
 import "./App.css";
 
 function App() {
-  const state = useSelector((state) => state.common);
   const dispatch = useDispatch();
 
   const onClickSetName = () => {
@@ -22,8 +23,8 @@ function App() {
 
   return (
     <div className="App">
-      <p>이름은? - {state.name}</p>
-      <p>설명은? - {state.description}</p>
+      <NameText />
+      <Description />
 
       <div>
         <button type="button" onClick={onClickSetName}>
