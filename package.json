@@ -1,6 +1,6 @@
 {
-  "name": "redux-angry",
-  "description": "리덕스와 원만한 합의를 위한 라이브러리",
+  "name": "i-hate-redux",
+  "description": "리덕스와 원만한 합의를 위한 저장소",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
