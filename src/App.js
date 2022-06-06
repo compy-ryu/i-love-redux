@@ -1,17 +1,22 @@
 import Description from "components/Description";
 import NameText from "components/Name";
-import { useDispatch } from "react-redux";
+import useDispatchEvent from "hooks/useDispatchEvent";
 import { commonActions } from "store/common";
 import "./App.css";
 
 function App() {
-  const dispatch = useDispatch();
+  const { dispatchEvent, dispatch } = useDispatchEvent();
 
   const onClickSetName = () => {
     const name = prompt("설정할 이름은 무엇?");
-
     if (!name) return;
-    dispatch(commonActions.updateName({ name }));
+
+    dispatchEvent({
+      action: commonActions.updateName({ name }),
+      onStateUpdated: ({ common }) => {
+        alert(`최신 상태를 불러온다! 🤩\n=> 변경된 이름은 ${common.name} 입니다.`);
+      },
+    });
   };
 
   const onClickSetDescription = () => {
