@@ -1,10 +1,12 @@
 import Description from "components/Description";
 import NameText from "components/Name";
 import useDispatchEvent from "hooks/useDispatchEvent";
+import { useSelector } from "react-redux";
 import { commonActions } from "store/common";
 import "./App.css";
 
 function App() {
+  const description = useSelector(({ common }) => common.description);
   const { dispatchEvent, dispatch } = useDispatchEvent();
 
   const onClickSetName = () => {
@@ -20,10 +22,11 @@ function App() {
   };
 
   const onClickSetDescription = () => {
-    const description = prompt("설정할 설명은 무엇?");
+    const inputDescription = prompt("설정할 설명은 무엇?");
 
-    if (!description) return;
-    dispatch(commonActions.updateDescription({ description }));
+    if (!inputDescription) return;
+    dispatch(commonActions.updateDescription({ description: inputDescription }));
+    alert(`업데이트 안된 이전 상태를 불러온다. 😡\n=> 설명: ${description}`);
   };
 
   return (
